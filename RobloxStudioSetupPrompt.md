@@ -7,6 +7,15 @@ Help me collaborate on our existing Roblox game using my own AI assistant, Roblo
 
 Repository: https://github.com/s-kanji/Spin2Fight
 
+Start by explaining collaboration to me:
+- Before running setup commands or changing files, give me a short, plain-language introduction to how our team intends to work. Do not assume I already understand Team Create, Script Sync, or Git.
+- Explain that Team Create is our shared Roblox development place; each person uses their own AI and local repository clone; Script Sync connects only their assigned script folders to that shared place; GitHub stores committed and pushed code for history and review.
+- Walk through an example: my AI edits Combat locally while a teammate's AI edits Rewards locally; their separate sync connections update the shared Studio place so we can test together; each person then commits and pushes their own tested changes. A push does not automatically pull files onto anyone else's computer.
+- Make clear that simultaneous work requires different assigned folders, with one editor per shared script and no overlapping parent-folder sync. Explain that a Git branch does not isolate changes from teammates when it is synced into the same Studio place: edits can appear there before a pull request is merged.
+- Explain the everyday routine: agree on feature ownership, pause sync while updating Git, reconcile local files with Studio, sync only the assigned folders, edit and test, then commit and push at agreed milestones. Coordinate ownership handoffs before touching another person's scripts.
+- Explain that the broad Server sync is the initial setup, not proof that feature-level ownership is configured. We must inspect and coordinate its replacement before enabling overlapping connections.
+- End the introduction by asking which feature folders I have agreed to own and whether anyone currently syncs those folders or their parents. Continue read-only checks while awaiting the answer, but do not enable sync or edit shared scripts until the assignment and overlap questions are resolved.
+
 Current setup and intended workflow:
 - We use the same Roblox experience through Team Create.
 - Studio has a folder at ServerScriptService > Server.
