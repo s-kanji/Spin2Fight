@@ -1,0 +1,171 @@
+{
+  "universeId": 10772315378,
+  "hierarchy": [
+    {
+      "className": "Chat",
+      "path": "Chat"
+    },
+    {
+      "className": "Lighting",
+      "path": "Lighting"
+    },
+    {
+      "className": "Atmosphere",
+      "path": "Lighting.Atmosphere"
+    },
+    {
+      "className": "BloomEffect",
+      "path": "Lighting.Bloom"
+    },
+    {
+      "className": "DepthOfFieldEffect",
+      "path": "Lighting.DepthOfField"
+    },
+    {
+      "className": "Sky",
+      "path": "Lighting.Sky"
+    },
+    {
+      "className": "SunRaysEffect",
+      "path": "Lighting.SunRays"
+    },
+    {
+      "className": "LocalizationService",
+      "path": "LocalizationService"
+    },
+    {
+      "className": "MaterialService",
+      "path": "MaterialService"
+    },
+    {
+      "className": "Players",
+      "path": "Players"
+    },
+    {
+      "className": "ReplicatedFirst",
+      "path": "ReplicatedFirst"
+    },
+    {
+      "className": "ReplicatedStorage",
+      "path": "ReplicatedStorage"
+    },
+    {
+      "className": "ServerScriptService",
+      "path": "ServerScriptService"
+    },
+    {
+      "className": "Folder",
+      "path": "ServerScriptService.Server"
+    },
+    {
+      "className": "Script",
+      "path": "ServerScriptService.Server.Script"
+    },
+    {
+      "className": "ServerStorage",
+      "path": "ServerStorage"
+    },
+    {
+      "className": "SoundService",
+      "path": "SoundService"
+    },
+    {
+      "className": "StarterGui",
+      "path": "StarterGui"
+    },
+    {
+      "className": "StarterPack",
+      "path": "StarterPack"
+    },
+    {
+      "className": "StarterPlayer",
+      "path": "StarterPlayer"
+    },
+    {
+      "className": "StarterCharacterScripts",
+      "path": "StarterPlayer.StarterCharacterScripts"
+    },
+    {
+      "className": "StarterPlayerScripts",
+      "path": "StarterPlayer.StarterPlayerScripts"
+    },
+    {
+      "className": "Teams",
+      "path": "Teams"
+    },
+    {
+      "className": "TextChatService",
+      "path": "TextChatService"
+    },
+    {
+      "className": "BubbleChatConfiguration",
+      "path": "TextChatService.BubbleChatConfiguration"
+    },
+    {
+      "className": "ImageLabel",
+      "path": "TextChatService.BubbleChatConfiguration.ImageLabel"
+    },
+    {
+      "className": "UICorner",
+      "path": "TextChatService.BubbleChatConfiguration.UICorner"
+    },
+    {
+      "className": "UIGradient",
+      "path": "TextChatService.BubbleChatConfiguration.UIGradient"
+    },
+    {
+      "className": "UIPadding",
+      "path": "TextChatService.BubbleChatConfiguration.UIPadding"
+    },
+    {
+      "className": "ChannelTabsConfiguration",
+      "path": "TextChatService.ChannelTabsConfiguration"
+    },
+    {
+      "className": "ChatInputBarConfiguration",
+      "path": "TextChatService.ChatInputBarConfiguration"
+    },
+    {
+      "className": "ChatWindowConfiguration",
+      "path": "TextChatService.ChatWindowConfiguration"
+    },
+    {
+      "className": "Workspace",
+      "path": "Workspace"
+    },
+    {
+      "className": "Part",
+      "path": "Workspace.Baseplate"
+    },
+    {
+      "className": "Texture",
+      "path": "Workspace.Baseplate.Texture"
+    },
+    {
+      "className": "Camera",
+      "path": "Workspace.Camera"
+    },
+    {
+      "className": "SpawnLocation",
+      "path": "Workspace.SpawnLocation"
+    },
+    {
+      "className": "Decal",
+      "path": "Workspace.SpawnLocation.Decal"
+    },
+    {
+      "className": "Terrain",
+      "path": "Workspace.Terrain"
+    }
+  ],
+  "unreadableScripts": [],
+  "placeId": 133194819129629,
+  "scripts": [
+    {
+      "path": "ServerScriptService.Server.Script",
+      "source": "print(\"Hello world!\")\n",
+      "className": "Script"
+    }
+  ],
+  "scope": "Hierarchy and script sources in the listed game services only; excludes internal Studio services and current Players descendants. Not a full-place backup or automatic restore."
+}

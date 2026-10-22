@@ -1,58 +1,38 @@
 # RobloxStudioSetupPrompt
 
-Copy the following prompt into your AI assistant:
+Copy this prompt to your AI:
 
 ```text
-Help me collaborate on our existing Roblox game using my own AI assistant, Roblox Team Create, built-in Script Sync, and our private GitHub repository.
+Help me collaborate on Spin2Fight using my own AI, our shared Roblox Team Create place, Roblox's official built-in Studio MCP server, optional Script Sync, and GitHub.
 
 Repository: https://github.com/s-kanji/Spin2Fight
+Shared place: Spin to fight, place ID 133194819129629
 
-Start by explaining collaboration to me:
-- Before running setup commands or changing files, give me a short, plain-language introduction to how our team intends to work. Do not assume I already understand Team Create, Script Sync, or Git.
-- Explain that Team Create is our shared Roblox development place; each person uses their own AI and local repository clone; Script Sync connects only their assigned script folders to that shared place; GitHub stores committed and pushed code for history and review.
-- Walk through an example: my AI edits Combat locally while a teammate's AI edits Rewards locally; their separate sync connections update the shared Studio place so we can test together; each person then commits and pushes their own tested changes. A push does not automatically pull files onto anyone else's computer.
-- Make clear that simultaneous work requires different assigned folders, with one editor per shared script and no overlapping parent-folder sync. Explain that a Git branch does not isolate changes from teammates when it is synced into the same Studio place: edits can appear there before a pull request is merged.
-- Explain the everyday routine: agree on feature ownership, pause sync while updating Git, reconcile local files with Studio, sync only the assigned folders, edit and test, then commit and push at agreed milestones. Coordinate ownership handoffs before touching another person's scripts.
-- Explain that the broad Server sync is the initial setup, not proof that feature-level ownership is configured. We must inspect and coordinate its replacement before enabling overlapping connections.
-- End the introduction by asking which feature folders I have agreed to own and whether anyone currently syncs those folders or their parents. Continue read-only checks while awaiting the answer, but do not enable sync or edit shared scripts until the assignment and overlap questions are resolved.
+Before setup, explain this to me in plain language:
+- Team Create is the shared live game. Each person connects their own AI to their own Studio through MCP so it can work on scripts, maps, UI, lighting, and supported game objects.
+- We agree on different feature/object scopes first. For example my AI handles Combat while another handles Rewards or a separate map area. Shared scripts and objects have one editor at a time. MCP and Git do not lock work automatically.
+- GitHub records explicit milestones. A Studio change is not automatically a Git commit, and a push is not automatically applied to Studio or pulled by teammates.
+- Live edits reach the shared development game before GitHub review. Git branches do not isolate edits already applied there.
+- Script Sync is optional for local script editing. Sync only assigned folders with no overlap, including parent/child overlap. The original owner has a broad Server sync; do not duplicate it across computers.
+- Live hierarchy and script sources can be captured with the checkpoint command. Full maps, properties and other saved place content require a coordinated full-place export. One person owns that export at a time.
 
-Current setup and intended workflow:
-- We use the same Roblox experience through Team Create.
-- Studio has a folder at ServerScriptService > Server.
-- That folder corresponds to src/server/Server in the repository.
-- The initial setup syncs that whole Server folder on the owner's computer. Feature-level syncing is the intended next setup; do not assume it has already been configured.
-- We use Script Sync, not Rojo.
-- GitHub commits, pushes, and pulls are separate from Studio syncing.
-- Everyone can use their own AI and work in the same Team Create place simultaneously, provided each person syncs and edits different assigned feature folders.
-- Each developer has their own local clone of this same repository.
-- Studio receives synced edits immediately, before GitHub review or merging. GitHub provides version history and review; it does not decide which live Studio edits take effect.
+Read README.md and COLLABORATION.md from the actual repository. Then:
+1. Check Git and authenticate securely. Verify private repo access and clone to a folder I choose, or inspect my existing clone. Do not ask for passwords/tokens in chat.
+2. Confirm separate Roblox Edit access and that I opened the correct shared place outside play mode.
+3. Guide me through Assistant > … > Manage MCP Servers > Enable Studio as MCP server, then register my client through Quick connect or official MCP settings. For Codex on Windows inspect tools/Connect-Studio.ps1 and run it when authorized. Preserve unrelated settings. Each collaborator must do their own setup.
+4. After any required reload, list Studio instances, select place ID 133194819129629, verify edit mode and read Workspace and ServerScriptService. Saved configuration is not proof of working access.
+5. Ask which feature/object scopes I have agreed to own and what teammates are editing. Do not write until scope conflicts are resolved. Do not contact teammates on my behalf without permission.
+6. Prefer direct MCP for live design work. If local script editing is needed, verify matching paths and non-overlapping sync roots. The initial mapping is ServerScriptService > Server to src/server/Server. Coordinate stopping the parent's sync, preserving contents, before enabling child feature syncs. Client/shared folders are not assumed connected.
+7. Pause affected Script Sync before Git pulls, branch switches, merges or rebases. Preserve work and compare Studio with disk before resuming; never blindly choose Keep Disk or Keep Studio. Use one write route per script during a task.
+8. Coordinate one harmless live test edit, ask a teammate to confirm visibility, then undo it. If using script syncing verify both directions with a temporary comment and remove it.
+9. Read live state before edits, stay in scope, coordinate shared-object handoffs and shared playtests, and help inspect output/test results.
+10. At tested milestones review the actual diff, stage only relevant paths, commit/push and help open a pull request within authorization. Ask for author details if missing. Do not auto-commit every keystroke or include unrelated changes.
+11. Run node tools/studio-checkpoint.mjs to record live hierarchy and script sources when appropriate. It requires local Node.js 20+, Studio MCP enabled, the correct game open, and edit mode. Review snapshots/studio-context.json before committing. It is not a full backup or automatic restore.
+12. Coordinate one exporter for Studio Download a Copy snapshots under places/. The original places/Spin2Fight.rbxlx.rbxl is a preserved binary snapshot, not continuous sync. Never replace the shared game just because I pulled a snapshot. Rojo import failed earlier; no Rojo migration is active or required.
 
-Feature ownership rules:
-- Agree with teammates which feature folders I own for this session before enabling sync or editing scripts. Ask me for the assignment; do not assume ownership or contact teammates on my behalf.
-- For example, one person could own ServerScriptService > Server > Combat, another Server > Rewards, and another a dedicated interface script folder. These are examples, not folders guaranteed to exist.
-- Sync only my assigned feature folders. Nobody may also sync an ancestor folder covering those features. Before splitting the current broad Server sync, coordinate with its owner to stop that sync while keeping its local files and Studio contents.
-- A shared script has one editor at a time. Coordinate an explicit handoff before another person or AI edits it. Do not edit outside my assigned scope without coordinating ownership.
-- Multiple people must not simultaneously sync and edit the same scripts. Team Create does not merge competing local AI edits for us.
+Never blindly overwrite scripts, replace/publish the game, force push, or change access without required authorization. GitHub access does not grant Roblox permissions or restricted asset rights. For isolation until review, explain separate development places as an alternative.
 
-Please:
-1. Check whether Git is installed and help me authenticate to GitHub securely. Don’t ask me to paste passwords or tokens into chat.
-2. Verify access to the private repo and clone it into a local folder I choose. If already cloned, inspect it before making changes.
-3. Confirm I have separate collaborator access to the Roblox experience.
-4. Inspect the actual Studio folders, repository structure, and existing sync roots. Confirm my assigned features and check with me that teammates have stopped any overlapping sync, including the owner's initial broad Server sync. Do not sync the entire Server folder on every collaborator's computer.
-5. Pull the latest agreed code while syncing is paused and the local working tree is accounted for. Help me create a feature branch. Configure my commit name and email only after asking me, if they are not already configured.
-6. Guide me through connecting only my assigned EXISTING feature folders to their matching locations in my clone. For example, Server > Combat should correspond to src/server/Server/Combat. Account for how Studio creates the selected folder inside the chosen destination; verify actual resulting paths and avoid duplicate nesting. Do not reorganize the game's scripts without agreement.
-7. Review differences between Studio and disk before enabling or resuming sync. Do not blindly choose Keep Disk or Keep Studio. Reconcile differences with the feature owner so existing work is preserved.
-8. Verify both directions with a harmless comment in an assigned script: Studio → local file, then local file → Studio. Coordinate the test because it affects the shared Team Create place. Remove the test comment afterward.
-9. Make changes only within my agreed scope. Help us test the combined changes in Studio. Explain that I can affect the shared development game before a GitHub pull request is approved, and that Script Sync only covers supported scripts and folders, not maps, parts, or all Studio assets.
-10. At an agreed, tested milestone, inspect the diff, stage only the relevant files, commit, push my branch, and help open a pull request using the available authorization. Do not auto-commit every keystroke or include unrelated changes. Do not claim a commit, push, merge, or test succeeded without verification.
-11. Pause my affected sync connections before pulling, switching branches, merging, or rebasing. Preserve uncommitted work, coordinate any shared-script changes, and reconcile Studio versus disk before resuming. A Git rollback or branch switch must not silently revert teammates' live Studio work.
-12. Explain ownership handoffs: stop the previous owner's sync while preserving files and Studio contents, commit/share their work, reconcile the new owner's files with Studio, and only then enable the new owner's sync. Never overlap the two connections for the handed-off scripts.
-
-Do not replace the existing game, overwrite scripts blindly, publish the game, or migrate to Rojo.
-
-Guide me one step at a time, inspect what is actually available on my computer, and verify the connection before claiming it works. If a Studio menu differs, ask for a screenshot.
+Explain each step and verify claims. Distinguish configuration saved, tools available, live reads verified, write tested and teammate visibility confirmed. If a tool/menu differs, inspect it or request a screenshot.
 ```
 
-This workflow supports simultaneous work in one shared Team Create place through non-overlapping feature ownership. It does not isolate unfinished features from teammates. If the team needs independent branches whose changes reach the shared game only after approval, use separate development copies of the place and agree on an integration workflow instead.
-
-Reference: [Roblox Script Sync documentation](https://create.roblox.com/docs/scripting/sync).
+References: [Studio MCP](https://create.roblox.com/docs/studio/mcp), [Script Sync](https://create.roblox.com/docs/scripting/sync).
